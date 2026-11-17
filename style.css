@@ -1,0 +1,105 @@
+/* ---------- Color palette & fonts (CSS variables) ---------- */
+:root {
+  --ink: #1f1a1a;          /* dark header band */
+  --plum: #4a2f35;         /* headings */
+  --sidebar: #ddd6d3;      /* warm grey sidebar */
+  --page: #ffffff;
+  --text: #2b2626;
+  --rule: #4a2f35;
+  --font-body: "Poppins", sans-serif;
+  --font-head: "Cormorant Garamond", serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--page);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* ---------- Navbar (flexbox) ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  background: var(--ink);
+  color: #fff;
+}
+.nav-logo { font-family: var(--font-head); font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { color: #fff; text-decoration: none; font-size: 0.9rem; padding-bottom: 3px; border-bottom: 2px solid transparent; }
+.nav-links a:hover, .nav-links a:focus { border-bottom-color: #ddd6d3; }
+
+/* ---------- Hero ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  background: var(--ink);
+  color: #fff;
+  padding: 36px 40px 44px;
+}
+.profile-photo {
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  flex-shrink: 0;
+}
+.hero-text h1 { font-size: 3rem; letter-spacing: 4px; text-transform: uppercase; line-height: 1.1; }
+.tagline { font-size: 1.25rem; font-weight: 500; margin-top: 10px; }
+.highlights { font-size: 0.85rem; font-style: italic; margin-top: 8px; }
+
+/* ---------- Two-column layout (flexbox) ---------- */
+.layout { display: flex; align-items: stretch; }
+.sidebar { flex: 0 0 36%; background: var(--sidebar); padding: 30px 32px; }
+.main { flex: 1; padding: 30px 40px; }
+
+/* ---------- Cards & headings ---------- */
+.card { padding: 18px 0 22px; border-bottom: 1.5px solid var(--rule); }
+.card:last-child { border-bottom: none; }
+.sidebar .contact { padding-bottom: 20px; border-bottom: 1.5px solid var(--rule); }
+.contact p { margin-bottom: 10px; font-size: 0.9rem; word-break: break-word; }
+
+h2 {
+  font-family: var(--font-head);
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  color: var(--plum);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+h3 { font-size: 1rem; font-weight: 500; margin-bottom: 2px; }
+h4 { font-size: 0.95rem; font-weight: 600; margin: 12px 0 6px; }
+.institute { font-weight: 600; font-size: 0.85rem; }
+.years { font-size: 0.85rem; margin-bottom: 12px; }
+.edu-item { margin-bottom: 14px; }
+
+ul { padding-left: 20px; }
+li { margin-bottom: 4px; }
+.main p { text-align: justify; }
+
+/* ---------- Footer ---------- */
+.footer { padding: 18px 40px; border-top: 1.5px solid var(--rule); text-align: right; font-size: 0.85rem; }
+.footer a { color: var(--plum); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  .navbar { flex-direction: column; gap: 8px; padding: 12px 16px; }
+  .nav-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+  .hero { flex-direction: column; text-align: center; padding: 28px 20px; }
+  .hero-text h1 { font-size: 2.1rem; }
+  .layout { flex-direction: column; }
+  .sidebar, .main { padding: 24px 20px; }
+  .footer { text-align: center; }
+}
